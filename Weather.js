@@ -51,8 +51,10 @@ const weatherCases = {
 
 }
 
-function Weather({temp, weatherName}){
+function Weather({temp, weatherName, cityNameIs}){
     console.log(weatherName);
+    console.log(cityNameIs);
+    console.log(temp);
     return(
         <LinearGradient 
         colors= {weatherCases[weatherName].colors} 
@@ -61,6 +63,7 @@ function Weather({temp, weatherName}){
             <StatusBar hidden={true} />
             <Ionicons color = "white" size ={150}  name ={weatherCases[weatherName].icon}/>    
             <Text style={styles.temperature}>{temp}°</Text>
+            <Text stlye ={styles.cityName}>CityName:{cityNameIs}</Text>
         </View>
         <View style = {styles.lower}>
             <Text style={styles.title}> {weatherCases[weatherName].title} </Text>
@@ -85,6 +88,12 @@ const styles = StyleSheet.create({
         flex:1,
         alignItems:"center",
         justifyContent:'center'
+    },
+
+    cityName:{
+        fontSize: 25,
+        color:"white",
+        marginBottom: 20
     },
 
     temperature:{
